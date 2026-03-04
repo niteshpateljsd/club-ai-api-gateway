@@ -73,18 +73,18 @@ router.use(
     target: USER,
     changeOrigin: true,
     proxyTimeout: 10000,
-    pathRewrite: {
-          "^/users": "/users", // preserve prefix
-        },
+
+    pathRewrite: (path, req) => {
+      return path; // 👈 DO NOT rewrite anything
+    },
+
     onProxyReq: (proxyReq, req) => {
-      logger.info(`➡️ [USER SERVICE] Target: ${USER}`);
       logger.info(`➡️ [USER SERVICE] Forwarding: ${req.method} ${req.originalUrl}`);
     },
 
     onError: (err, req, res) => {
       logger.error("❌ [USER SERVICE] Error", {
         message: err.message,
-        stack: err.stack,
       });
       res.status(500).json({ error: "User service unavailable" });
     },
