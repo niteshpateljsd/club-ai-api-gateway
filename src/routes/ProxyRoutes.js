@@ -73,7 +73,9 @@ router.use(
     target: USER,
     changeOrigin: true,
     proxyTimeout: 10000,
-
+    pathRewrite: {
+          "^/users": "/users", // preserve prefix
+        },
     onProxyReq: (proxyReq, req) => {
       logger.info(`➡️ [USER SERVICE] Target: ${USER}`);
       logger.info(`➡️ [USER SERVICE] Forwarding: ${req.method} ${req.originalUrl}`);
