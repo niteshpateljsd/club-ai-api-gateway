@@ -74,13 +74,14 @@ router.use(
     changeOrigin: true,
     proxyTimeout: 10000,
 
-    pathRewrite: (path, req) => {
-      return path; // 👈 DO NOT rewrite anything
-    },
+    // pathRewrite: (path, req) => {
+    //   return path; // 👈 DO NOT rewrite anything
+    // },
 
     onProxyReq: (proxyReq, req) => {
       logger.info(`➡️ [USER SERVICE] Forwarding: ${req.method} ${req.originalUrl}`);
     },
+    
 
     onError: (err, req, res) => {
       logger.error("❌ [USER SERVICE] Error", {
