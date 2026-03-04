@@ -9,14 +9,6 @@ function gatewayAuth(req, res, next) {
     "/api/v1/health",
     "/api/v1/users/requestOtp",
     "/api/v1/users/verifyOtp",
-    "/api/v1/admin/user/requestOtp",
-    "/api/v1/admin/user/verifyOtp",
-    "/api/v1/admin/location/getAllCountry",
-    "/api/v1/social/post/getGuestPost",
-    "/api/v1/social/reel/getGuestReel",
-    "/api/v1/social/event/getAllEvent",
-    "/api/v1/social/vote/getLeaderBoard",
-    "/api/v1/social/vote/getAllRankedPost"
   ];
 
   // Log incoming request
